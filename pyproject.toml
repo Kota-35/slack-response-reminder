@@ -1,0 +1,47 @@
+[project]
+name = "slack-response-reminder"
+version = "0.1.0"
+description = "Slackのメッセージを定期的に確認して、未返信のメッセージをリマインドする"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiohttp==3.11.14",
+    "fastapi==0.115.11",
+    "google-cloud-tasks==2.19.2",
+    "httpx==0.28.1",
+    "pydantic==2.10.6",
+    "pydantic-settings==2.8.1",
+    "slack-sdk==3.35.0",
+    "uvicorn==0.34.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.2",
+    "ty==0.0.1a12",
+]
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["RET504", "E501", "ERA001"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+
+[tool.ruff.lint.pylint]
+max-args = 6
+
+
+[tool.ty.rules]
+unknown-argument = "ignore"
+missing-argument = "warn"
+unresolved-import = "ignore"
+invalid-assignment = "ignore"
+

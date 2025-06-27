@@ -1,0 +1,10 @@
+[tools]
+python = "3.12.10"
+uv = "0.7.12"
+
+[env]
+'_'.python.venv = ".venv"
+'_'.file = ".env"
+
+[tasks.dev]
+run = "PYTHONPATH=$PYTHONPATH:. uvicorn src.main:app --reload --host localhost --port 4090"
